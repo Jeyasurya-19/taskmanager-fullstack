@@ -5,6 +5,7 @@ from app.database import Base, engine
 from app.config import settings
 from app.routers import auth_routes, tasks
 
+
 # Creates tables if they don't exist yet (fine for a portfolio project;
 # use Alembic migrations if this grows into something bigger)
 Base.metadata.create_all(bind=engine)
@@ -19,7 +20,7 @@ origins = [
 
 app.add_middleware(
     CORSMiddleware,
-      allow_origins=origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
