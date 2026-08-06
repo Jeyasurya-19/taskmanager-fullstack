@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL ||  "https://taskmanager-fullstack-3ygs.onrender.com";
+const API_BASE_URL = import.meta.env.VITE_API_URL ||  "https://taskmanager-fullstack-ind0l.vercel.app";
 
 async function request(path, { method = 'GET', body, token } = {}) {
   const headers = { 'Content-Type': 'application/json' }

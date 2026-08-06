@@ -12,20 +12,14 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Task Manager API", version="1.0.0")
 
-origins = [
-    "http://localhost:5173",
-    "https://taskmanager-fullstack-db2vctxto-js1-174a.vercel.app/",  # replace with your Vercel URL
-]
-
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origin_regex=r"https://.*\.vercel\.app",
+    allow_origins=settings.cors_origin_list,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 app.include_router(auth_routes.router)
 app.include_router(tasks.router)
 
