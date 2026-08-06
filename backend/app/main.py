@@ -13,6 +13,11 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI(title="Task Manager API", version="1.0.0")
 
 
+from app.config import settings
+
+print("CORS_ORIGINS:", settings.cors_origins)
+print("CORS_LIST:", settings.cors_origin_list)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origin_list,
